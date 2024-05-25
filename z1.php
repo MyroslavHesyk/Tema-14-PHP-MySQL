@@ -12,7 +12,6 @@
     <?php
     require_once "db-connect.php";
 
-
     if ($_GET) {
         $m = $_GET['m'];
     } else {
@@ -33,32 +32,31 @@
         $row = mysql_fetch_array($q1);
         $img_src[$i] = $row['foto'];
     }
-
-
     ?>
-    <table width='100%' border="1">
-        <tr>
-            <td id="logo">
-                <h5>Кращі автомобілі світу</h5>
-            </td>
-            <td rowspan="2">
-                <?php
-                for ($i = 0; $i < count($img_src); $i++) {
-                    echo '<p align=center> <img src="' . $img_src[$i] . '" width=90%> </p>';
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
-            <td id="menu" valign='top'>
-                <?php
-                for ($i = 0; $i < count($name); $i++) {
-                    echo '<a href="?m=' . $id[$i] . ' "> ' . $name[$i] . ' </a> <br>';
-                }
-                ?>
-            </td>
-        </tr>
-    </table>
+
+    <div id="logo">
+        <h5>Кращі автомобілі світу</h5>
+    </div>
+    <div class="container">
+        <table width='100%' border="1">
+            <tr>
+                <td id="menu" valign='top'>
+                    <?php
+                    for ($i = 0; $i < count($name); $i++) {
+                        echo '<a href="?m=' . $id[$i] . ' "> ' . $name[$i] . ' </a> <br>';
+                    }
+                    ?>
+                </td>
+                <td rowspan="2">
+                    <?php
+                    for ($i = 0; $i < count($img_src); $i++) {
+                        echo '<p align=center> <img src="' . $img_src[$i] . '" width=90%> </p>';
+                    }
+                    ?>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

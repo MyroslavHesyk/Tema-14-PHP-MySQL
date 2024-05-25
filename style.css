@@ -5,18 +5,29 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Контейнер для основного вмісту */
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* Стилі для логотипу */
 #logo {
     background-color: #1f1f1f;
     text-align: center;
-    padding: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #logo h5 {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -24,6 +35,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    flex: 1;
 }
 
 td {
