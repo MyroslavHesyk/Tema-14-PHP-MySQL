@@ -11,27 +11,13 @@
 <body>
     <?php
     require_once "db-connect.php";
+    include 'function.php';
 
-    if ($_GET) {
-        $m = $_GET['m'];
-    } else {
-        $m = 1;
-    }
-
-    /* отримуємо назву авто та id з БД */
-    $q = mysql_query("SELECT id, name FROM car");
-    for ($i = 0; $i < mysql_num_rows($q); $i++) {
-        $row = mysql_fetch_array($q);
-        $id[$i] = $row['id'];
-        $name[$i] = $row['name'];
-    }
-
-    /* витягуємо з таблиці фото тільки ті фото який id_car співпадає з нашою змінною m */
-    $q1 = mysql_query("SELECT foto FROM foto_car WHERE id_car='$m'");
-    for ($i = 0; $i < mysql_num_rows($q1); $i++) {
-        $row = mysql_fetch_array($q1);
-        $img_src[$i] = $row['foto'];
-    }
+    $m = get_action_menu();
+    $id = get_menu_id();
+    $name = get_menu_name();
+    $img_src = get_photo($m);
+    $opus = get_opus();
     ?>
 
     <div id="logo">
@@ -41,21 +27,21 @@
         <table width='100%' border="1">
             <tr>
                 <td id="menu" valign='top'>
-                    <?php
-                    for ($i = 0; $i < count($name); $i++) {
-                        echo '<a href="?m=' . $id[$i] . ' "> ' . $name[$i] . ' </a> <br>';
-                    }
-                    ?>
+                    <?php print_menu($id, $name, $m); ?>
                 </td>
                 <td rowspan="2">
-                    <?php
-                    for ($i = 0; $i < count($img_src); $i++) {
-                        echo '<p align=center> <img src="' . $img_src[$i] . '" width=90%> </p>';
-                    }
-                    ?>
+                    <?php print_photo($img_src) ?>
+                </td>
+                <td id="menu" valign='top'>
+                    <?php print_opus($m, $opus); ?>
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="logo">
+
+        <h3>Розробник: <a href="https://github.com/MyroslavHesyk/Tema-14-PHP-MySQL" target="_blank"> MyroslavHesyk</a></h3>
+        <h6>Всі права захищено <sup>©</sup> </h6>
     </div>
 </body>
 
