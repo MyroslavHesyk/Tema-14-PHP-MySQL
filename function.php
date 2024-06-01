@@ -59,7 +59,7 @@ function print_menu($id, $name, $m)
 function print_photo($img_src)
 {
     for ($i = 0; $i < count($img_src); $i++) {
-        echo '<p align=center> <img src="' . $img_src[$i] . '" width=90%> </p>';
+        echo ' <img src="' . $img_src[$i] . '" > ';
     }
 }
 

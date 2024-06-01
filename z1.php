@@ -29,7 +29,7 @@
                 <td id="menu" valign='top'>
                     <?php print_menu($id, $name, $m); ?>
                 </td>
-                <td rowspan="2">
+                <td id='image' rowspan="2">
                     <?php print_photo($img_src) ?>
                 </td>
                 <td id="menu" valign='top'>
@@ -38,6 +38,8 @@
             </tr>
         </table>
     </div>
+
+
     <div id="logo">
 
         <h3>Розробник: <a href="https://github.com/MyroslavHesyk/Tema-14-PHP-MySQL" target="_blank"> MyroslavHesyk</a></h3>
